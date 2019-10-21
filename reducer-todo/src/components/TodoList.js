@@ -1,13 +1,22 @@
-import React from 'react'
+import React, {useReducer} from 'react'
+import { todoReducer, initialState} from '../reducers/todoReducer'
 
 //Component Imports
 import Todo from './Todo'
+import TodoButtons from './TodoButtons'
 
-const TodoList = (props) => {
-
-    console.log(props)
+function TodoList () {
+    const [state,dispatch] = useReducer(todoReducer, initialState)
+    
     return (
-        <Todo state={props.state}/>
+        <div>
+            {state &&
+                state.map((item) => {
+                    return <Todo key={item.id} item={item} onClick={() => { dispatch({ type: "TOGGLE_COMPLETED", payload: item.id }) }} />
+                })
+            } 
+            <TodoButtons dispatch={dispatch}/>
+        </div>
     )
 }
 

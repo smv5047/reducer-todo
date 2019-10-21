@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  margin: 0 auto;
+  width: 300px;
+  border: solid 1px black;
+  box-shadow: 2px 2px 2px;
 }
 
 .App-logo {
@@ -19,4 +23,14 @@
 
 .App-link {
   color: #09d3ac;
+}
+.incomplete{
+  color: red;
+}
+.completed {
+  text-decoration: line-through;
+}
+
+h2 {
+  color: orange;
 }
