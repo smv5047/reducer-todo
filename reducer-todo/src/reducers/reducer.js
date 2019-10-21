@@ -9,8 +9,18 @@ export const initialState = {
 
 
 export function reducer (state, action) {
-    
-    return {
-        ...state
+    switch(action.type) {
+        case "UPDATE_TODO": 
+            return [
+                ...state,
+                action.payload
+            ]
+        case "TOGGLE_COMPLETED":
+            return {
+                ...state,
+                completed: !state.completed
+            }
+        default:
+            return state
     }
 }
